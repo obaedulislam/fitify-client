@@ -7,7 +7,7 @@
     height: 100%;
     display: inline-block;
     border-radius: 12px;
-    background: linear-gradient( rgba(10, 10, 10, 0.7)  0%, rgba(10, 10, 10, 0.7) 100%);
+    background: linear-gradient( rgba(10, 10, 10, 0.5)  0%, rgba(10, 10, 10, 0.5) 100%);
 }
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
