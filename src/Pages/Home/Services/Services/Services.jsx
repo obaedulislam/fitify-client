@@ -22,12 +22,12 @@ const Services = () => {
 
     return (
         <div className='lg:py-20 md:py-12 py-10'>
-            <div className='blog-head w-1/2 mx-auto'>
-                <h2 className="md:text-4xl text-3xl  text-center font-bold text-[#0A5078]">Our Service</h2>
+            <div className='service-head w-1/2 mx-auto'>
+                <h2 className="md:text-4xl text-3xl  text-center font-bold text-[#0A5078]">Our Services</h2>
                 <div className='w-24 h-1 bg-[#FAB400] mx-auto mt-2'></div>
                 <p className='mt-5 text-center'>We ensure that, you can get world class service form us. Here are some some service that we provide now!</p>
             </div>
-            {/* Blog Header End */}
+            {/* Service Header End */}
             <div className='grid grid-cols-3 gap-5 mt-8'>
                 {
                     services.map(service => <ServiceCard

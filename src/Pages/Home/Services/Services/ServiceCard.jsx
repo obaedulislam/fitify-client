@@ -12,7 +12,7 @@ const ServiceCard = ({service}) => {
             <div className="card-body px-5 py-5 relative ">
                 <div className='flex items-center justify-between '>
                     <div>
-                        <p className='font-specially text-2xl text-[#FFEEA3]'>Pay: <span className='text-[#FAB400] '> ${price}</span></p>
+                        <p className='font-specially text-2xl text-[#FFEEA3]'>Pay: <span className='text-[#6dff0b] '> ${price}</span></p>
                     </div>
 
                     <div className="badge flex items-center justify-center badge-outline text-[#FAB400] p-3">
