@@ -44,7 +44,7 @@ const Footer = () => {
                  {/* Social Media Icon End */}
 
                  <div>
-                    <p className='text-center mt-5 text-white italic'>Copyright &copy; 2022 | All Right Reserved by <Link to='http://obaedulislam.com/' target= "_blank" className='text-gray-200 hover:text-[#FAB400]'>Obaedul Islam</Link>  | <Link className='text-gray-200 hover:text-[#FAB400]'>Privacy Policy</Link> | <Link className='text-gray-200 hover:text-[#FAB400]  '>Terms & Conditions</Link></p>
+                    <p className='text-center mt-5 text-white italic'>Copyright &copy; 2022 | All Right Reserved by <a href='http://obaedulislam.com/' target= "_blank" className='text-gray-200 hover:text-[#FAB400]' rel="noopener noreferrer">Obaedul Islam</a>  | <Link className='text-gray-200 hover:text-[#FAB400]'>Privacy Policy</Link> | <Link className='text-gray-200 hover:text-[#FAB400]  '>Terms & Conditions</Link></p>
                  </div>
                 {/* Footer Bottom End */}
                 

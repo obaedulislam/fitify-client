@@ -51,7 +51,7 @@ const Header = () => {
                         <img className='w-12 h-10' src={logo} alt="" />
                     </div>
                     <div className='ml-2'>
-                        <h4 className='text-4xl font-bold logo-txt text-[#0A5078]'>FitiFy</h4>
+                        <h4 className='font-specially text-4xl font-bold logo-txt text-[#0A5078]'>FitiFy</h4>
                     </div>
                     
                 </Link>

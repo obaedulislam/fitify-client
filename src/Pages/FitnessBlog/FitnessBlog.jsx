@@ -13,7 +13,7 @@ const FitnessBlog = () => {
     } ,[]);
 
     return (
-        <div className='my-20'>
+        <div className='lg:pb-20 md:pb-12 pb-10'>
             <div className='blog-head w-1/2 mx-auto'>
                 <h2 className="md:text-4xl text-3xl  text-center font-bold text-[#0A5078]">Latest Blog</h2>
                 <div className='w-24 h-1 bg-[#FAB400] mx-auto mt-2'></div>
@@ -21,7 +21,7 @@ const FitnessBlog = () => {
             </div>
             {/* Blog Header End */}
 
-            <div className='grid grid-cols-3 gap-5 mt-8'>
+            <div className='grid grid-cols-3 gap-7 mt-8'>
                 {
                     fitBlog.map(blog => <FitBlogDetails
                         key={blog.id}
