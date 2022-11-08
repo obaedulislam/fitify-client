@@ -14,7 +14,7 @@ const CarouselItem = ({slide}) => {
 
             <div className="absolute w-[50%] mx-auto justify-center  top-1/4 left-[25%]">
                 <h1 className='font-specially text-center text-6xl text-white leading-[65px]'>A brand New<br/> Training Experience</h1>
-                <p className='text-white mt-7 text-lg'>Work towards your fitness goal with one of our amazing personal trainer, with convenient price.</p>
+                <p className='text-white mt-7 text-lg text-center'>Work towards your fitness goal with one of our amazing personal trainer, with convenient price.</p>
                 <div className=" flex justify-center items-center  mt-8">
                     <button className="btn bg-[#FAB400] text-black border-[#ff391100] duration-300 hover:border-gray-100 hover:bg-[#ff391100] hover:text-white mr-5 capitalize text-lg text-semibold">Get Appointment</button>
 

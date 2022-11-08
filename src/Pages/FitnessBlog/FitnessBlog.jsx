@@ -32,7 +32,7 @@ const FitnessBlog = () => {
             {/* All blog End */}
 
             <div className='mt-8 flex justify-center'>
-                <Link ><button className="btn py-0  bg-gray-200 border-4 border-[#0A5078] duration-300 hover:border-[#0A5078] hover:bg-[#ff391100] text-[#0A5078] mr-5 capitalize text-lg text-semibold">Show More</button></Link>
+                <Link ><button className="py-[7px] rounded-lg   px-10  bg-[#FAB400]  border border-[#FAB400] duration-300 hover:border-[#FAB400] hover:bg-[#ff391100] text-[#000] mr-5 capitalize text-md font-semibold">Show More</button></Link>
             </div>
         </div>
     );
