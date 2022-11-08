@@ -4,3 +4,9 @@
 h4.logo-txt{
     font-family: 'Racing Sans One', cursive !important;
 }
+
+li.user-photo a{
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: transparent !important;
+}

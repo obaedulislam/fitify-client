@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import{createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile}  from 'firebase/auth'
-import { toast } from 'react-toastify';
 import app from '../../firebase/firebase.config';
+import toast from 'react-hot-toast';
 
 
 export const AuthContext = createContext();
@@ -31,31 +31,23 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    // Firebase Update User on State Auth Function
-    const updateUserProfile = (profile) => {
-        setLoading(true);
-        return updateProfile(auth.currentUser, profile)
-    }
-
 
     // Firebase useEffect To Change state Auth Function
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('track using useEffect', currentUser);
-            if (currentUser === null || (currentUser.emailVerified || currentUser.providerData[0].providerId === "github.com")) {
-                setUser(currentUser);
-            }
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            console.log(currentUser);
+            setUser(currentUser);
             setLoading(false);
         });
         return () => {
-            unsubscribe();
+            return unsubscribe();
         }
     }, [])
 
     // Firebase User Logout Auth Function
     const logOut = () => {
         setLoading(true);
-        toast.success("You have logout from site ");
+        toast.success("You have Log Out from site ");
         return signOut(auth);
 
     } 
@@ -67,7 +59,6 @@ const AuthProvider = ({children}) => {
         setLoading,
         signIn, 
         createUser, 
-        updateUserProfile, 
         googleProviderLogin, 
         logOut};
 
