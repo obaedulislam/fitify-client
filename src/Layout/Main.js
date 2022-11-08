@@ -9,7 +9,6 @@ const Main = () => {
             <div className='shadow'>
                 <Header></Header>
             </div>
-
             <div className='max-w-[1140px] mx-auto'>
                 <Outlet></Outlet>
             </div>

@@ -1,9 +1,13 @@
 import React from 'react';
+import Carousel from './Slider/Carousel';
+
 
 const Home = () => {
     return (
         <div>
-            <h1>This is Home</h1>
+            <div className='my-10 '>
+                <Carousel></Carousel>
+            </div>
         </div>
     );
 };
