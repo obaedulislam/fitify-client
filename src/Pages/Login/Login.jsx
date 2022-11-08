@@ -59,13 +59,13 @@ const Login = () => {
     }
 
     return (
-    <div className="max-w-[900px] my-20 mx-auto lg:px-0 md:px-0 px-3">
+    <div className="max-w-[900px] my-10 mx-auto lg:px-0 md:px-0 px-3">
         <div className=" grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
             <div className="text-center lg:text-left flex items-center">
                 <img className='lg:w-3/4 md:w-3/4 w-1/3 mx-auto' src={loginimg} alt="" />
             </div>
             <div className="card flex-shrink-0 w-full  shadow bg-base-100  border border-gray-100 p-8">
-                <h1 className="md:text-5xl text-3xl text-center font-bold text-[#0A5078]">Login</h1>
+                <h2 className="md:text-5xl text-3xl text-center font-bold text-[#0A5078]">Login</h2>
 
                 <form  onSubmit={handleFormSubmit} className="card-body p-0">
                     <div className="form-control">
@@ -81,7 +81,7 @@ const Login = () => {
                         <input type="password" name='password' placeholder="Your password" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-2">
-                        <input className="py-1 px-3 rounded-lg bg-[#00A0C8] hover:bg-white border-4 border-[#00A0C8] duration-300  hover:text-[#0A5078] text-black capitalize text-xl font-bold shadow-lg cursor-pointer " type="submit" value="Log In" />
+                        <input className="py-2 px-3 rounded-lg bg-[#0A5078] hover:bg-[#0e6597]  duration-300   text-white capitalize text-xl font-bold shadow-lg cursor-pointer " type="submit" value="Log In" />
                         <p className='text-center mt-2'>New to FitiFy? Please <Link className='text-[#0A5078] font-bold' to="/signup">Sign Up</Link> </p>
                     </div>
                 </form>

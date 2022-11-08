@@ -6,7 +6,7 @@ import Header from '../Pages/Shared/Header/Header';
 const Main = () => {
     return (
         <div>
-            <div className='shadow'>
+            <div className='shadow bg-gray-100 sticky top-0 z-10'>
                 <Header></Header>
             </div>
             <div className='max-w-[1140px] mx-auto'>

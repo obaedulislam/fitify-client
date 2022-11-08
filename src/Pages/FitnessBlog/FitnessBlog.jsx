@@ -1,0 +1,41 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import FitBlogDetails from './FitBlogDetails';
+
+const FitnessBlog = () => {
+
+    const [fitBlog, setFitBlog] = useState([]);
+
+    useEffect(() => {
+        fetch(`fitblog.json`)
+        .then(res => res.json())
+        .then(data => setFitBlog(data))
+    } ,[]);
+
+    return (
+        <div className='my-20'>
+            <div className='blog-head w-1/2 mx-auto'>
+                <h2 className="md:text-4xl text-3xl  text-center font-bold text-[#0A5078]">Latest Blog</h2>
+                <div className='w-24 h-1 bg-[#FAB400] mx-auto mt-2'></div>
+                <p className='mt-5 text-center'>You can get latest health tips. Read those blog & implement in your life. all blog was written by health professional.</p>
+            </div>
+            {/* Blog Header End */}
+
+            <div className='grid grid-cols-3 gap-5 mt-8'>
+                {
+                    fitBlog.map(blog => <FitBlogDetails
+                        key={blog.id}
+                        blog={blog}
+                    ></FitBlogDetails>)
+                }
+            </div>
+            {/* All blog End */}
+
+            <div className='mt-8 flex justify-center'>
+                <Link ><button className="btn py-0  bg-gray-200 border-4 border-[#0A5078] duration-300 hover:border-[#0A5078] hover:bg-[#ff391100] text-[#0A5078] mr-5 capitalize text-lg text-semibold">Show More</button></Link>
+            </div>
+        </div>
+    );
+};
+
+export default FitnessBlog;
