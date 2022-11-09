@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineComment } from "react-icons/ai";
 
-const FitBlogDetails = ({blog}) => {
+const FitBlogCard = ({blog}) => {
     const {image, title, description, comment, author} = blog;
 
     return (
@@ -42,4 +42,4 @@ const FitBlogDetails = ({blog}) => {
     );
 };
 
-export default FitBlogDetails;
+export default FitBlogCard;

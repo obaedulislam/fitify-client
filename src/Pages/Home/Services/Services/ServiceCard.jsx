@@ -30,10 +30,10 @@ const ServiceCard = ({service}) => {
                         <p className='font-specially text-2xl text-[#FFEEA3]'>Pay: <span className='text-[#6dff0b] '> ${price}</span></p>
                     </div>
 
-                    <div className="badge flex items-center justify-center badge-outline text-[#FAB400] p-3">
+                    {/* <div className="badge flex items-center justify-center badge-outline text-[#FAB400] p-3">
                         <BsFillStarFill className='mr-1 text-lg '></BsFillStarFill>
                         <span className="text-lg font-semibold p-1 text-[#FAB400] ">{rating}</span>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="card-title flex justify-between">

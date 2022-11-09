@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import loginimg from '../../assets/loginimg.png'
+import signup from '../../assets/signup.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -65,7 +65,7 @@ const SignUp = () => {
     <div className="max-w-[900px] my-10 mx-auto lg:px-0 md:px-0 px-3">
         <div className=" grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
             <div className="text-center lg:text-left flex items-center">
-                <img className='lg:w-3/4 md:w-3/4 w-1/3 mx-auto' src={loginimg} alt="" />
+                <img className='lg:w-full md:w-3/4 w-1/3 mx-auto' src={signup} alt="" />
             </div>
             <div className="card flex-shrink-0 w-full  shadow bg-base-100  border border-gray-100 p-8">
                 <h2 className="md:text-5xl text-3xl text-center font-bold text-[#0A5078]">Sign Up</h2>

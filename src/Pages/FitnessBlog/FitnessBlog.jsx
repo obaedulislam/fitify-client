@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import FitBlogDetails from './FitBlogDetails';
+import FitBlogCard from './FitBlogCard';
 
 const FitnessBlog = () => {
 
     const [fitBlog, setFitBlog] = useState([]);
 
     useEffect(() => {
-        fetch(`fitblog.json`)
+        fetch(`http://localhost:5000/blogs`)
         .then(res => res.json())
-        .then(data => setFitBlog(data))
+        .then(data => setFitBlog(data.data))
     } ,[]);
 
     return (
@@ -23,10 +23,10 @@ const FitnessBlog = () => {
 
             <div className='grid grid-cols-3 gap-7 mt-8'>
                 {
-                    fitBlog.map(blog => <FitBlogDetails
+                    fitBlog.map(blog => <FitBlogCard
                         key={blog.id}
                         blog={blog}
-                    ></FitBlogDetails>)
+                    ></FitBlogCard>)
                 }
             </div>
             {/* All blog End */}

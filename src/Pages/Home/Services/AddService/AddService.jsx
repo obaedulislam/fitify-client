@@ -55,7 +55,7 @@ const AddService = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 '>
                         <input name="title" type="text" placeholder="Service Title" className="input  w-full  input-bordered bg-white placeholder-slate-600"  required/>
                         <input name="image" type="url" placeholder="Service Image URl" className="input  w-full  input-bordered bg-white placeholder-slate-600" required/>
-                        <input name="price" type="number" placeholder="Service Price" className="input  w-full  input-bordered bg-white placeholder-slate-600" required />
+                        <input name="price" type="text" placeholder="Service Price" className="input  w-full  input-bordered bg-white placeholder-slate-600" required />
                         <input name="rating" type="text" placeholder="Give Rating(example:4.8)"  className="input  w-full  input-bordered bg-white placeholder-slate-600" />
                     </div>
                     <textarea name="description" className="textarea textarea-bordered h-24 w-full bg-white mt-5 placeholder-slate-600 text-md" placeholder="Service detail description "  required></textarea>
