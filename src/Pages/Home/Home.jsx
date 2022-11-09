@@ -15,7 +15,7 @@ const Home = () => {
         .then(res => res.json())
         .then((data) => {
             if (data.success) {
-              setServices(data.data2);
+              setServices(data.dataLimit);
             } else {
               toast.error(data.error);
             }
