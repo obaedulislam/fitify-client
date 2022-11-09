@@ -12,12 +12,14 @@ const AddReview = () => {
     const{_id, title, image} = service;
 
     const [userReview, setUserReview] = useState([]);
+    console.log(userReview)
     const [refresh, setRefresh] = useState(false);
     
     useEffect(() =>{
         fetch(`http://localhost:5000/review`)
         .then(res => res.json())
         .then((data) => {
+            console.log(data);
             if (data.success) {
               setUserReview(data.data);
             } else {
@@ -32,7 +34,7 @@ const AddReview = () => {
         const form = event.target;
         const userReview = {
             userName: user.displayName,
-            userEmail: user.email,
+            email: user.email,
             userPhoto: user.photoURL,
             review_text: form.review.value,
             serviceId: _id,
@@ -61,8 +63,9 @@ const AddReview = () => {
 
     return (
         <div>
-             <h2 className=" font-bold text-2xl ">Please <Link to='/login' className='text-[#fa8e00] underline'>Login</Link> first to add a review</h2>
-            <form onSubmit={handleReviewSubmit}  className='text-black'>   
+            {
+                user?.email ? <>
+                <form onSubmit={handleReviewSubmit}  className='text-black'>   
                 <div className='mb-4'>
                    
                     {/* <input name="rating" type="text" placeholder="Give Rating(example:4.8)"  className="input  w-full  input-bordered bg-white placeholder-slate-600" /> */}
@@ -75,6 +78,10 @@ const AddReview = () => {
                     <input className="mt-1 py-1 px-3 ml-auto rounded-lg bg-[#0A5078] hover:bg-[#0e6597]  duration-300   text-white capitalize  shadow-lg cursor-pointer " type="submit" value="Add review" />
                 </div>
             </form>
+                </> : <h2 className=" font-bold text-2xl ">Please <Link to='/login' className='text-[#fa8e00] underline'>Login</Link> first to add a review</h2>
+            }
+             
+            
             
             <div>
                 {

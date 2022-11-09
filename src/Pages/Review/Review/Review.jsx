@@ -3,15 +3,17 @@ import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Review = ({review}) => {
-    const {userName, userEmail, userPhoto, review_text, serviceId, serviceTitle, serviceImg} = review;
+    const {userName, email, userPhoto, review_text, serviceId, serviceTitle, serviceImg} = review;
+    console.log(review);
 
     return (
         <div className=''>
+            
             <div className='review-user flex border-b-2 pb-4  mb-4'>
                 <div className="user-img">
                     <Link>{
                         userPhoto ?
-                        <img className='w-12 h-12' src={userPhoto} alt={userName} title={userName} /> 
+                        <img className='w-12 h-12 rounded-full' src={userPhoto} alt={userName} title={userName} /> 
                         :
                         <FaUserCircle className='text-3xl' title={userName}></FaUserCircle>
                     } </Link>

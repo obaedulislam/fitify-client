@@ -10,4 +10,9 @@ module.exports = {
     extend: {},
   },
   plugins: [require("daisyui")],
+  variants: {
+    extend: {
+      backgroundColor: ['even'],
+    }
+  }
 }

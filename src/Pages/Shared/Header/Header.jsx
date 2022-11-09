@@ -20,12 +20,12 @@ const Header = () => {
         {
             user?.email ?
             <>  
-                <li className='font-semibold bg-dark'><Link to='/reviews' >My Reviews</Link></li>
+                <li className='font-semibold bg-dark'><Link to='/myreviews' >My Reviews</Link></li>
                 <li className='font-semibold bg-dark'><Link to='/add-service' >Add Services</Link></li>
                 <li className='font-semibold'><Link onClick={handleLogout} >Sign Out</Link></li>
                 <li className='font-semibold p-0 m-0 user-photo ml-4'><Link>{
                     user?.photoURL ?
-                    <img className='w-10 h-10' src={user?.photoURL} alt={user.displayName} title={user.displayName} /> 
+                    <img className='w-10 h-10 rounded-full' src={user?.photoURL} alt={user.displayName} title={user.displayName} /> 
                     :
                     <FaUserCircle className='text-3xl' title={user?.displayName}></FaUserCircle>
                 } </Link></li>
