@@ -1,6 +1,8 @@
 import React from 'react';
 import { BsFillStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceCard = ({service}) => {
     const{_id, title, name, image, rating, price, description} = service;
@@ -8,7 +10,19 @@ const ServiceCard = ({service}) => {
     return (
         <div className='rounded-lg  bg-[#0A5078] shadow '>
             {/* Service card start Here */}
-            <figure><img src={image} className="rounded-t-lg" alt="Shoes" /></figure>
+            <figure>
+                <PhotoProvider
+                peed={() => 800}
+                easing={(type) => (type === 2 ? 'cubic-bezier(0.36, 0, 0.66, -0.56)' : 'cubic-bezier(0.34, 1.56, 0.64, 1)')}
+                >
+                    <div>
+                        <PhotoView  src={image}>
+                            <img src={image} className="rounded-t-lg" alt="Shoes" />
+                        </PhotoView>
+                    </div>
+                </PhotoProvider>
+            </figure>
+
             <div className="card-body px-5 py-5 relative ">
                 <div className='flex items-center justify-between '>
                     <div>
