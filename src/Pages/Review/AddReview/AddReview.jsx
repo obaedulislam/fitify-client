@@ -15,19 +15,35 @@ const AddReview = () => {
     console.log(userReview)
     const [refresh, setRefresh] = useState(false);
     
+    
     useEffect(() =>{
-        fetch(`http://localhost:5000/review`)
+        fetch(`http://localhost:5000/service/singleservicereview/${data?.serviceId}`)
         .then(res => res.json())
-        .then((data) => {
-            console.log(data);
+        .then(data => {
+            setUserReview(data);
             if (data.success) {
-              setUserReview(data.data);
-            } else {
-              toast.error(data.error);
-            }
-          })
-          .catch((err) => toast.error(err.message));
-    }, [refresh])
+                setUserReview(data.data);
+              } else {
+                toast.error(data.error);
+              }
+              
+            })
+            .catch((err) => toast.error(err.message));
+    }, [data?.serviceId, refresh]);
+
+    // useEffect(() =>{
+    //     fetch(`http://localhost:5000/review`)
+    //     .then(res => res.json())
+    //     .then((data) => {
+    //         console.log(data);
+    //         if (data.success) {
+    //           setUserReview(data.data);
+    //         } else {
+    //           toast.error(data.error);
+    //         }
+    //       })
+    //       .catch((err) => toast.error(err.message));
+    // }, [refresh])
 
     const handleReviewSubmit = event => {
         event.preventDefault();
@@ -66,19 +82,16 @@ const AddReview = () => {
             {
                 user?.email ? <>
                 <form onSubmit={handleReviewSubmit}  className='text-black'>   
-                <div className='mb-4'>
-                   
-                    {/* <input name="rating" type="text" placeholder="Give Rating(example:4.8)"  className="input  w-full  input-bordered bg-white placeholder-slate-600" /> */}
-
+                    <label htmlFor="review">Your Review:</label>
+                    <textarea name="review" className="textarea border-gray-200 	 h-16 w-full bg-white mt-1 placeholder-slate-600 text-md rounded-xl" placeholder="Your opinion about our service "  required></textarea>
+                
+                    <div className='flex justify-end'>
+                        <input className="mt-1 py-1 px-3 ml-auto rounded-lg bg-[#0A5078] hover:bg-[#0e6597]  duration-300   text-white capitalize  shadow-lg cursor-pointer " type="submit" value="Add review" />
+                    </div>
+                </form>
+                </> : <div className='border-4 border-gray-300 mb-10 p-2 rounded-lg'>
+                    <h2 className="font-specially  text-3xl text-center">Please <Link to='/login' className='text-[#fa8e00] underline text-4xl'>Login</Link> first to add a review</h2>
                 </div>
-                <label htmlFor="review">Your Review:</label>
-                <textarea name="review" className="textarea border-gray-200 	 h-16 w-full bg-white mt-1 placeholder-slate-600 text-md rounded-xl" placeholder="Your opinion about our service "  required></textarea>
-            
-                <div className='flex justify-end'>
-                    <input className="mt-1 py-1 px-3 ml-auto rounded-lg bg-[#0A5078] hover:bg-[#0e6597]  duration-300   text-white capitalize  shadow-lg cursor-pointer " type="submit" value="Add review" />
-                </div>
-            </form>
-                </> : <h2 className=" font-bold text-2xl ">Please <Link to='/login' className='text-[#fa8e00] underline'>Login</Link> first to add a review</h2>
             }
              
             

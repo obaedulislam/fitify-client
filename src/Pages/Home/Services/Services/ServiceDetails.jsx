@@ -83,14 +83,10 @@ const ServiceDetails = () => {
 
                     {/* Review Section Start*/}
                     <div>
-                        <div className='  p-7 mt-5 shadow-lg border-gray-700 rounded-xl'>
+                        <div className='  p-7 mt-3 shadow-lg border-gray-700 rounded-xl'>
                             <AddReview></AddReview>
                         </div>
                     </div>
-
-                </div>
-
-                <div className='right-other-service'>
 
                 </div>
             </div>

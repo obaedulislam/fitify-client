@@ -5,6 +5,7 @@ import useTitle from '../../Hooks/useTitle';
 
 import { BsFillStarFill, BsPencilSquare, BsStarHalf} from 'react-icons/bs';
 import { FaTrashAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const MyReviews = () => {
     useTitle('My Reviews');
@@ -43,7 +44,11 @@ const MyReviews = () => {
         }).catch(err => toast.error(err.message))
       };
 
-
+      const navigate = useNavigate();
+      const handleEdit = (id) => {
+        navigate(`/myreviews/editreview/${id}`)
+      }
+    
 
     return (
         <div>
@@ -77,7 +82,7 @@ const MyReviews = () => {
                                     </div>
                                     <div className='flex'>
                                         <div className="hover:tooltip tooltip-open tooltip-bottom" data-tip="Update">
-                                            <button className='p-2 text-lg bg-[#0A5078] text-white rounded-lg mr-2'><BsPencilSquare ></BsPencilSquare></button>
+                                            <button onClick={() => handleEdit(review._id)} className='p-2 text-lg bg-[#0A5078] text-white rounded-lg mr-2'><BsPencilSquare ></BsPencilSquare></button>
                                         </div>
                                         <div className="hover:tooltip tooltip-open tooltip-bottom" data-tip="Delete">
                                              <button onClick={() => handleDelete(review._id)} className='p-2 text-lg bg-[#0A5078] text-white rounded-lg'><FaTrashAlt></FaTrashAlt></button>
