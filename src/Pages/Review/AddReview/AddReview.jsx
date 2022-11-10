@@ -11,42 +11,27 @@ const AddReview = () => {
     const service = data;
     const{_id, title, image} = service;
 
-    const [userReview, setUserReview] = useState([]);
-    console.log(userReview)
+    const [userReviews, setUserReviews] = useState([]);
+    
     const [refresh, setRefresh] = useState(false);
 
 
     
     useEffect(() =>{
-        fetch(`http://localhost:5000/singleservicereview?serviceId=${data?.serviceId}`)
+        fetch(`http://localhost:5000/reviews?serviceId=${_id}`)
         .then(res => res.json())
-        .then(data => {
+        .then((data) => {
             console.log(data);
-            setUserReview(data);
-            if (data.success) {
-                setUserReview(data.data);
-                
-              } else {
-                toast.error(data.error);
-              }
-              
-            })
-            .catch((err) => toast.error(err.message));
-    }, [ data?.serviceId, refresh]);
-
-    // useEffect(() =>{
-    //     fetch(`http://localhost:5000/review`)
-    //     .then(res => res.json())
-    //     .then((data) => {
-    //         console.log(data);
-    //         if (data.success) {
-    //           setUserReview(data.data);
-    //         } else {
-    //           toast.error(data.error);
-    //         }
-    //       })
-    //       .catch((err) => toast.error(err.message));
-    // }, [refresh])
+            if (data.status) {
+                // console.log(data);
+              setUserReviews(data.reviews);
+            } else {
+              toast.error(data.error);
+            }
+          })
+          .catch((err) => toast.error(err.message));
+    }, [_id, refresh])
+    console.log('array', userReviews)
 
     const handleReviewSubmit = event => {
         event.preventDefault();
@@ -100,9 +85,9 @@ const AddReview = () => {
               
             <div>
                 {
-                    userReview.map(review => <Review
-                        key={review._id}
-                        review ={review}
+                    userReviews.map(rev => <Review
+                        key={rev._id}
+                        rev ={rev}
                     > </Review>)
                 }
             </div>

@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Review = ({review}) => {
-    const {userName, email, userPhoto, review_text, serviceId, serviceTitle, serviceImg} = review;
-    console.log(review);
+const Review = ({rev}) => {
+    const {userName, email, userPhoto, review_text, serviceId, serviceTitle, serviceImg} = rev;
+    console.log('rev', rev);
+    // const [reviews, setReviews] = useState([]);
+    // // const [showModal, setShowModal] = useState(false);
+    // const [refresh, setRefresh] = useState(false);
 
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/reviews?serviceId=${review?._id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log('received', data);
+    //             setReviews(data.reviews)
+    //         })
+    // }, [review?._id, refresh]);
+
+    // console.log(reviews);
     return (
         <div className=''>
             

@@ -52,6 +52,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            setLoading(false);
             toast.success("Successfully SignUp With Google");
             navigate(from, {replace: true});
         })

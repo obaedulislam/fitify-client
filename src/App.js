@@ -8,7 +8,19 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router}></RouterProvider>
-      <Toaster/>
+      <Toaster
+        toastOptions={{
+          style: {
+            background: 'yellow',
+            color: '#000',
+            fontSize: '16px',
+            fontWeight:'600'
+          },
+          success: {
+            duration: 3000,
+          },
+        }}
+      />
     </div>
   );
 }

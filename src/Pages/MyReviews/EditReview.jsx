@@ -1,60 +1,48 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { BsFillStarFill, BsPencilSquare, BsStarHalf } from 'react-icons/bs';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const EditReview = () => {
+
+    const { review } = useLoaderData();
     const {user} = useContext(AuthContext);
     useTitle('My Reviews | Edit');
 
-    const [review, setReview] = useState({});
-    console.log(review);
-    const [refresh, setRefresh] = useState(false);
+    const navigate = useNavigate();
+    const handleEditReview = event => {
+        event.preventDefault();
+        const form = event.target;
 
-    //User Email specific review
-    useEffect(() =>{
-        fetch(`http://localhost:5000/myreview?email=${user?.email}`)
-        .then(res => res.json())
-        .then(data => {
-            setReview(data);
-            if (data.success) {
-                setReview(data.data);
-              } 
-            }
- 
-            )
-    }, [user?.email]);
+        const updatedReview = {
+            review: form.review.value
+        }
 
-    
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const review = {
-//       review: e.target.review.value,
+        fetch(`http://localhost:5000/review/${review._id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedReview)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status) {
+                    toast.success(`Successfully updated your review for ${review.serviceName} service`);
+                    navigate('/myreviews');
+                } else {
+                    toast.error(data.error);
+                }
+            })
+            .catch(err => toast.error(err.message))
+    }
 
-//     }
 
-//     fetch(`http://localhost:5000/product/${id}`, {
-//       method: "PATCH",
-//       headers: {
-//         "content-type": "application/json"
-//       },
-//       body: JSON.stringify(review)
-//     }).then(res => res.json())
-//     .then(data => {
-//       if(data.success){
-//         toast.success(data.message);
-
-//       } else {
-//         toast.err(data.error)
-//       }
-//     })
-//     .catch(err => toast.error(err.message))
-//   }
 
     return (
         <div className="py-32 px-10 max-w-[700px] mx-auto">
-                    <form >
                     <div className=' mb-3  border border-gray-400 rounded-xl'>
                         <div className=' '>
                             <div className="service-title flex justify-between items-center bg-gray-100 p-3 rounded-t-xl">
@@ -83,7 +71,7 @@ const EditReview = () => {
                             {/* Edit Review Header End */}
 
                             <div className='p-3'>
-                            <form  className='text-black'>   
+                            <form onSubmit={handleEditReview}  className='text-black'>   
                                 <label className='font-semibold' htmlFor="review">Edit Review:</label>
                                 <textarea name="review" className="textarea border-gray-200 	 h-24 w-full bg-white mt-1 placeholder-slate-600 text-lg rounded-xl" placeholder="Your opinion about our service " defaultValue={review?.review_text} required></textarea>
                             
@@ -96,7 +84,6 @@ const EditReview = () => {
                         </div>
                                 
                     </div>
-                </form>
 
       </div>
     );

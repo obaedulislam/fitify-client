@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import signup from '../../assets/signup.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -18,7 +18,7 @@ const SignUp = () => {
     const [error, setError] = useState('');
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-   
+    const [refresh, setRefresh] = useState(true);
 
     // Login Form Submition Handler Function
     const handleFormSubmit = event => {
@@ -62,6 +62,13 @@ const SignUp = () => {
             console.error(error);
         })
     }
+
+    useEffect(() => {
+        setRefresh(true);
+        setTimeout(() => {
+            setRefresh(false);
+        }, 1000)
+    }, [])
 
     return (
     <div className="max-w-[900px] my-10 mx-auto lg:px-0 md:px-0 px-3">

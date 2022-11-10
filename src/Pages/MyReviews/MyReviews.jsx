@@ -70,7 +70,7 @@ const MyReviews = () => {
                 </div>
                 <div className='max-w-[700px] mx-auto mt-10'>
                        
-                        {   
+                        {  userReview.length > 0 ? 
                         userReview.map(review =>         
                             
                         <div className=' mb-3  border border-gray-400 rounded-xl'>
@@ -112,7 +112,7 @@ const MyReviews = () => {
                             </div>
                            
                         </div>
-                        )
+                        ): <h3 className='text-3xl font-bold  md:py-28 py-12 text-center'>No reviews were added!</h3>
                         }
                 </div>
  
