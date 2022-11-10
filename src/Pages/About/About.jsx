@@ -6,6 +6,11 @@ const About= () => {
     return (
         <div className='items-center mx-auto grid md:grid-cols-2 gird-cols-1 gap-10  lg:py-20 md:py-12 py-10'>
 
+            <div className="hero-right flex justify-center items-center ">
+                <img src={about} className='md:w-full w-2/3'  alt='About' />
+            </div>
+            {/* Hero Right End */}
+            
             <div className="hero-left ">
                 <h1 className="md:text-4xl text-3xl font-bold text-[#0A5078]"><span>About</span>  <span className="text-[#FAB400] border-b-4 border-[#0A5078]">FitiFy</span> </h1>
                 <h4 className=' mt-5 font-semibold '>Our fitness coaches can enable you to meet your wellness objectives. They can turn into your instructor, your helper, your mentor and your companion.</h4>
@@ -18,10 +23,6 @@ const About= () => {
             </div>
             {/* Hero left End */}
 
-            <div className="hero-right flex justify-center items-center ">
-                <img src={about} className='w-full '  alt='About' />
-            </div>
-            {/* Hero Right End */}
 
 
         </div>

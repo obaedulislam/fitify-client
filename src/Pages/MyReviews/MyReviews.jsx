@@ -5,13 +5,19 @@ import useTitle from '../../Hooks/useTitle';
 
 import { BsFillStarFill, BsPencilSquare, BsStarHalf} from 'react-icons/bs';
 import { FaTrashAlt } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const MyReviews = () => {
     useTitle('My Reviews');
     const {user} = useContext(AuthContext);
     const [userReview, setUserReview] = useState([]);
     const [refresh, setRefresh] = useState(false);
+
+      // After Login Navigation Variable
+      const navigate = useNavigate();
+      const [error, setError] = useState('');
+        const location = useLocation();
+      const from = location.state?.from?.pathname || '/';
 
     //User Email specific review
     useEffect(() =>{
@@ -21,10 +27,16 @@ const MyReviews = () => {
             setUserReview(data);
             if (data.success) {
                 setUserReview(data.data);
+                navigate(from, {replace: true});
               } 
             }
  
             )
+        .catch(error => {
+            console.error(error);
+            setError(error.code);
+            toast.error(error.code);
+        })
     }, [user?.email, refresh]);
 
 
@@ -44,7 +56,6 @@ const MyReviews = () => {
         }).catch(err => toast.error(err.message))
       };
 
-      const navigate = useNavigate();
       const handleEdit = (id) => {
         navigate(`/myreviews/editreview/${id}`)
       }
@@ -52,17 +63,17 @@ const MyReviews = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto w-full lg:py-20 md:py-12 py-10' ">
+            <div className=" w-full lg:py-20 md:py-12 py-10 ">
                 <div className='my-review mx-auto'>
-                    <h2 className="font-specially md:text-4xl text-3xl  text-center font-bold text-[#0A5078]">Total Review: <span className='text-black '>{userReview.length}</span></h2>
+                    <h2 className="font-specially md:text-4xl text-3xl  text-center font-bold text-[#0A5078]">Total Review: <span className='text-black '>{userReview.length }</span></h2>
                     <div className='w-24 h-1 bg-[#FAB400] mx-auto mt-1'></div>
                 </div>
                 <div className='max-w-[700px] mx-auto mt-10'>
-
-                        {
-                            userReview.map(review =>         
+                       
+                        {   
+                        userReview.map(review =>         
                             
-                            <div className=' mb-3  border border-gray-400 rounded-xl'>
+                        <div className=' mb-3  border border-gray-400 rounded-xl'>
                             <div className=' '>
                                 <div className="service-title flex justify-between items-center bg-gray-100 p-3 rounded-t-xl">
                                     <div className='flex'>
@@ -80,19 +91,24 @@ const MyReviews = () => {
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div className='flex'>
                                         <div className="hover:tooltip tooltip-open tooltip-bottom" data-tip="Update">
-                                            <button onClick={() => handleEdit(review._id)} className='p-2 text-lg bg-[#0A5078] text-white rounded-lg mr-2'><BsPencilSquare ></BsPencilSquare></button>
+                                            <button onClick={() => handleEdit(review._id)} className='p-2 md:text-lg sm:text-md text-sm bg-[#0A5078] text-white rounded-lg mr-2'><BsPencilSquare ></BsPencilSquare></button>
                                         </div>
                                         <div className="hover:tooltip tooltip-open tooltip-bottom" data-tip="Delete">
-                                             <button onClick={() => handleDelete(review._id)} className='p-2 text-lg bg-[#0A5078] text-white rounded-lg'><FaTrashAlt></FaTrashAlt></button>
+                                             <button onClick={() => handleDelete(review._id)} className='p-2 md:text-lg sm:text-md text-sm bg-[#0A5078] text-white rounded-lg'><FaTrashAlt></FaTrashAlt></button>
                                         </div>
                                         
                                     </div>
                                 </div>
+                                {/* My Review Header End */}
+
                                 <div className='p-3'>
                                     <p className=' text-black'>{review?.review_text}</p>
                                 </div>
+                                {/* My Review Text End */}
                             </div>
                            
                         </div>

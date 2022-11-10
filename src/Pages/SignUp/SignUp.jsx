@@ -67,7 +67,7 @@ const SignUp = () => {
     <div className="max-w-[900px] my-10 mx-auto lg:px-0 md:px-0 px-3">
         <div className=" grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
             <div className="text-center lg:text-left flex items-center">
-                <img className='lg:w-full md:w-3/4 w-1/3 mx-auto' src={signup} alt="" />
+                <img className='lg:w-full md:w-3/4 w-2/3 mx-auto' src={signup} alt="" />
             </div>
             <div className="card flex-shrink-0 w-full  shadow bg-base-100  border border-gray-100 p-8">
                 <h2 className="md:text-5xl text-3xl text-center font-bold text-[#0A5078]">Sign Up</h2>
@@ -96,15 +96,16 @@ const SignUp = () => {
                         <p className='text-center mt-2'>Already have an account? Please <Link className='text-[#0A5078] font-bold' to="/login">Log In</Link> </p>
                     </div>
                 </form>
-                {/* Normal Sign In end */}
+                {/* Normal Sign Up end */}
 
-                {/* Social SignIn */}
+                {/* Social SignUp Start */}
                 <div className='text-center mt-2'>
                     <p className='font-semibold'>-----Or-----</p>
                     <div className='flex justify-center  mt-2'>
                         <button onClick={handleGoogleSignIn } className='btn capitalize btn-sm text-md  border bg-white shadow  duration-200 hover:bg-gray-100  text-black rounded-md'>Sign Up With Google<FcGoogle className=' ml-2 text-lg'></FcGoogle></button>
                     </div>
                 </div>
+                {/* Social SignUp End */}
             </div>
         </div>
     </div>

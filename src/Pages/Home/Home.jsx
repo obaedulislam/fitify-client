@@ -28,17 +28,18 @@ const Home = () => {
     return (
         <div>
             <div >
-                <div className='pt-12'>
+                <div className='md:pt-20 pt-6'>
                     <Carousel></Carousel>
                 </div>
+                {/* Home Hero Carousel End */}
 
                 <div className='services lg:pt-20 md:pt-12 pt-10'>
-                    <div className='service-head w-1/2 mx-auto'>
+                    <div className='service-head md:w-1/2 w-full mx-auto'>
                         <h2 className="md:text-4xl text-3xl  text-center font-bold text-[#0A5078]">Our Services</h2>
                         <div className='w-24 h-1 bg-[#FAB400] mx-auto mt-2'></div>
                         <p className='mt-5 text-center'>We ensure that, you can get world class service form us. Here are some some service that we provide now!</p>
                     </div>
-                    <div className='grid grid-cols-3 gap-5 mt-8'>
+                    <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-8'>
                             {
                                 services.map(service => <ServiceCard
                                     key={service._id}
@@ -51,9 +52,13 @@ const Home = () => {
                          <Link to='/services' ><button className=" text-white py-2 px-7 font-semibold rounded-md bg-[#0A5078] hover:bg-[#0e6597]  duration-300  flex justify-center items-center cursor-pointer text-lg">View More</button></Link>
                     </div>
                 </div>
+                {/* Home Services End */}
 
                 <About></About>
+                {/* Home About Component End */}
+
                 <FitnessBlog></FitnessBlog>
+                {/* Home Blog Q & A End */}
 
             </div>
         </div>

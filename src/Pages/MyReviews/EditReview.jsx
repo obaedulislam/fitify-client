@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { BsFillStarFill, BsPencilSquare, BsStarHalf } from 'react-icons/bs';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
@@ -24,6 +25,32 @@ const EditReview = () => {
  
             )
     }, [user?.email]);
+
+    
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     const review = {
+//       review: e.target.review.value,
+
+//     }
+
+//     fetch(`http://localhost:5000/product/${id}`, {
+//       method: "PATCH",
+//       headers: {
+//         "content-type": "application/json"
+//       },
+//       body: JSON.stringify(review)
+//     }).then(res => res.json())
+//     .then(data => {
+//       if(data.success){
+//         toast.success(data.message);
+
+//       } else {
+//         toast.err(data.error)
+//       }
+//     })
+//     .catch(err => toast.error(err.message))
+//   }
 
     return (
         <div className="py-32 px-10 max-w-[700px] mx-auto">
@@ -53,16 +80,18 @@ const EditReview = () => {
                                     
                                 </div>
                             </div>
+                            {/* Edit Review Header End */}
 
                             <div className='p-3'>
-                            <form   className='text-black'>   
+                            <form  className='text-black'>   
                                 <label className='font-semibold' htmlFor="review">Edit Review:</label>
                                 <textarea name="review" className="textarea border-gray-200 	 h-24 w-full bg-white mt-1 placeholder-slate-600 text-lg rounded-xl" placeholder="Your opinion about our service " defaultValue={review?.review_text} required></textarea>
                             
                                 <div className='flex justify-end'>
-                                    <button className="mt-1 py-2 px-5 ml-auto rounded-lg bg-[#0A5078] hover:bg-[#0e6597]  duration-300 text-lg font-semibold  text-white capitalize  shadow-lg cursor-pointer flex items-center" type="submit" ><BsPencilSquare className='mr-2 text-xl text-white'></BsPencilSquare> Confirm Edit</button>
+                                    <button  className="mt-1 py-2 px-5 ml-auto rounded-lg bg-[#0A5078] hover:bg-[#0e6597]  duration-300 text-lg font-semibold  text-white capitalize  shadow-lg cursor-pointer flex items-center" type="submit" ><BsPencilSquare className='mr-2 text-xl text-white'></BsPencilSquare> Confirm Edit</button>
                                 </div>
                             </form>
+                            {/* Edit Review Form End */}
                             </div>
                         </div>
                                 

@@ -6,7 +6,6 @@ import useTitle from '../../../../Hooks/useTitle';
 import AddReview from '../../../Review/AddReview/AddReview';
 
 const ServiceDetails = () => {
-    
 
     const {data} = useLoaderData();
     const service = data;
@@ -17,15 +16,16 @@ const ServiceDetails = () => {
         <div className='lg:pb-20 md:pb-12 pb-10 pt-10'>
             <div>
                 <div className="foot-head text-center mb-8">
-                        <h2 className=" font-specially text-5xl text-[#0A5078] text-center">{name? name : 'FitiFy Fit'}</h2>
+                        <h2 className=" font-specially md:text-5xl text-3xl text-[#0A5078] text-center">{name? name : 'FitiFy Fit'}</h2>
                         <div className='w-24 h-1  bg-[#FAB400] mx-auto mt-2'></div>
                     </div>
             </div>
+            {/* Section Header End */}
 
-            <div className='grid grid-cols-12 gap-5'>
+            <div className='max-w-[800px] mx-auto gap-5'>
 
                 {/* Service Details start Here */}
-                <div  className='left-details  col-span-9'>
+                <div  className='left-details '>
                     <div className="details-service rounded-lg border-gray-200 shadow">
                         <figure>
                             <PhotoProvider
@@ -47,10 +47,6 @@ const ServiceDetails = () => {
                                     <p className='font-specially text-xl text-black'>Service Price: <span className='text-[#0A5078]'> ${price}</span></p>
                                 </div>
 
-                                {/* <div className="badge flex items-center justify-center badge-outline text-[#FAB400] p-3">
-                                    <BsFillStarFill className='mr-1 text-lg '></BsFillStarFill>
-                                    <span className="text-lg font-semibold p-1 text-[#FAB400] ">{rating}</span>
-                                </div> */}
                             </div>
 
                             <div className="card-title flex justify-between">

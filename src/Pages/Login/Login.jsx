@@ -20,7 +20,7 @@ const Login = () => {
     const [error, setError] = useState('');
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-   
+    // const [refresh, setRefresh] = useState(false);
 
     // Login Form Submition Handler Function
     const handleFormSubmit = event => {
@@ -33,14 +33,15 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            setLoading(false);
             form.reset();
             navigate(from, {replace: true});
             toast.success('Successfully Logged In');
         })
-        .catch(e => {
-            console.error(e);
-            setError(e.code);
-            toast.error(e.code);
+        .catch(error => {
+            console.error(error);
+            setError(error.code);
+            toast.error(error.code);
         })
     }
 
@@ -87,7 +88,7 @@ const Login = () => {
                         <p className='text-center mt-2'>New to FitiFy? Please <Link className='text-[#0A5078] font-bold' to="/signup">Sign Up</Link> </p>
                     </div>
                 </form>
-                {/* Normal Sign In end */}
+                {/* Normal Sign In Form end */}
 
                 {/* Social SignIn */}
                 <div className='text-center mt-2'>
@@ -96,6 +97,7 @@ const Login = () => {
                         <button onClick={handleGoogleSignIn } className='btn capitalize btn-sm text-md  border bg-white shadow  duration-200 hover:bg-gray-100  text-black rounded-md'>Log In With Google<FcGoogle className=' ml-2 text-lg'></FcGoogle></button>
                     </div>
                 </div>
+                {/* Social SignIn End*/}
             </div>
         </div>
     </div>

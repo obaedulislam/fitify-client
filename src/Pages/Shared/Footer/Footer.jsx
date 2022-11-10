@@ -7,14 +7,14 @@ import { BsFillTelephoneInboundFill, BsFillEnvelopeFill} from "react-icons/bs";
 
 const Footer = () => {
     return (
-        <div className='bg-[#074061] py-12 w-[100%]' >
+        <div className='bg-[#074061] py-12 w-[100%] md:px-0 px-3' >
             <div className='max-w-[1150px] mx-auto'>
                 <div className="foot-head text-center">
-                    <h2 className=" font-specially text-5xl text-[#FAB400] text-center">Get in Touch</h2>
+                    <h2 className=" font-specially md:text-5xl text-3xl text-[#FAB400] text-center">Get in Touch</h2>
                     <div className='w-24 h-1 bg-[#00A0C8] mx-auto mt-2'></div>
                 </div>
                 <div className='my-4'>
-                    <div className="location flex justify-center items-center text-white italic">
+                    <div className="location flex justify-center text-center items-center text-white italic">
                         <MdLocationPin className='text-xl text-[#FAB400] mr-2 italic'></MdLocationPin>
                         <p >Katasur, Kaderabad Housing, Mohammadpur - Dhaka</p>
                     </div>

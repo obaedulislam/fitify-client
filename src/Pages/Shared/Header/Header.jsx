@@ -48,12 +48,12 @@ const Header = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="flex items-center">
+                <Link to='/' className="flex items-center md:ml-0 ml-3">
                     <div>
-                        <img className='w-12 h-10' src={logo} alt="" />
+                        <img className='sm:w-12 sm:h-10 w-8 h-8' src={logo} alt="" />
                     </div>
                     <div className='ml-2'>
-                        <h4 className='font-specially text-4xl font-bold logo-txt text-[#0A5078]'>FitiFy</h4>
+                        <h4 className='font-specially md:text-4xl sm:text-3xl text-2xl font-bold logo-txt text-[#0A5078]'>FitiFy</h4>
                     </div>
                     
                 </Link>

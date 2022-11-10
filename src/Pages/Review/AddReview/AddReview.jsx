@@ -1,6 +1,6 @@
 import React, {  useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData} from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import Review from '../Review/Review';
 
@@ -14,22 +14,25 @@ const AddReview = () => {
     const [userReview, setUserReview] = useState([]);
     console.log(userReview)
     const [refresh, setRefresh] = useState(false);
-    
+
+
     
     useEffect(() =>{
-        fetch(`http://localhost:5000/service/singleservicereview/${data?.serviceId}`)
+        fetch(`http://localhost:5000/singleservicereview?serviceId=${data?.serviceId}`)
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             setUserReview(data);
             if (data.success) {
                 setUserReview(data.data);
+                
               } else {
                 toast.error(data.error);
               }
               
             })
             .catch((err) => toast.error(err.message));
-    }, [data?.serviceId, refresh]);
+    }, [ data?.serviceId, refresh]);
 
     // useEffect(() =>{
     //     fetch(`http://localhost:5000/review`)
@@ -92,10 +95,9 @@ const AddReview = () => {
                 </> : <div className='border-4 border-gray-300 mb-10 p-2 rounded-lg'>
                     <h2 className="font-specially  text-3xl text-center">Please <Link to='/login' className='text-[#fa8e00] underline text-4xl'>Login</Link> first to add a review</h2>
                 </div>
+                // Add Review form End
             }
-             
-            
-            
+              
             <div>
                 {
                     userReview.map(review => <Review
@@ -104,6 +106,7 @@ const AddReview = () => {
                     > </Review>)
                 }
             </div>
+            {/* Service All review */}
         </div>
     );
 };
