@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 import About from '../About/About';
 import FitnessBlog from '../FitnessBlog/FitnessBlog';
 import ServiceCard from './Services/Services/ServiceCard';
@@ -9,6 +10,7 @@ import Carousel from './Slider/Carousel';
 
 const Home = () => {
     const [services, setServices] = useState([]);
+    useTitle('Home');
     
     useEffect(() =>{
         fetch('http://localhost:5000/services')

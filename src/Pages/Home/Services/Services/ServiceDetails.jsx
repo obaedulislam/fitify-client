@@ -2,13 +2,16 @@ import React from 'react';
 
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData} from 'react-router-dom';
+import useTitle from '../../../../Hooks/useTitle';
 import AddReview from '../../../Review/AddReview/AddReview';
 
 const ServiceDetails = () => {
+    
 
     const {data} = useLoaderData();
     const service = data;
     const{_id, title, name, image, rating, price, description, service_features} = service;
+    useTitle(`${title}`);
 
     return (
         <div className='lg:pb-20 md:pb-12 pb-10 pt-10'>

@@ -5,8 +5,10 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
 import { GoogleAuthProvider } from 'firebase/auth';
 import toast from 'react-hot-toast';
+import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
+    useTitle('Sign Up');
     const {googleProviderLogin, createUser} = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();

@@ -16,6 +16,7 @@ const Header = () => {
 
     const menuItems = <>
         <li className='font-semibold'><Link to='/' >Home</Link></li>
+        <li className='font-semibold'><Link to='/services' >Services</Link></li>
         <li className='font-semibold'><Link to='/blog' >Blog</Link></li>
         {
             user?.email ?
@@ -37,8 +38,8 @@ const Header = () => {
 
 
     return (
-        <div className="navbar py-2 px-0 max-w-[1140px] mx-auto">
-            <div className="navbar-start">
+        <div className="navbar flex justify-between py-2 px-0 max-w-[1140px] mx-auto">
+            <div className="menu-logo">
                 <div className="dropdown  ">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden md:hidden mr-[25%]">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -58,7 +59,7 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className="navbar-end hidden md:flex">
+            <div className="menu-item hidden md:flex">
                 <ul className="menu menu-horizontal p-0 ">
                     {menuItems}
                 </ul>

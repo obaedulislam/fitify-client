@@ -1,7 +1,11 @@
 import React from 'react';
 import blog from '../../assets/blog.png'
+import useTitle from '../../Hooks/useTitle';
 
 const Blog = () => {
+
+    useTitle('Blog');
+
     return (
         <div className='lg:py-20 md:py-12 py-10'>
             <div className='service-head w-1/2 mx-auto'>
