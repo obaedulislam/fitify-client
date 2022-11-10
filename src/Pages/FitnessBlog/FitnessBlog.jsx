@@ -7,7 +7,7 @@ const FitnessBlog = () => {
     const [fitBlog, setFitBlog] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs`)
+        fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/blogs`)
         .then(res => res.json())
         .then(data => setFitBlog(data.data))
     } ,[]);

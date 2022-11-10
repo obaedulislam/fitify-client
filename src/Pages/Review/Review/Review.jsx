@@ -10,7 +10,7 @@ const Review = ({rev}) => {
     // const [refresh, setRefresh] = useState(false);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/reviews?serviceId=${review?._id}`)
+    //     fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/reviews?serviceId=${review?._id}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log('received', data);

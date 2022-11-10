@@ -20,7 +20,7 @@ const EditReview = () => {
             review: form.review.value
         }
 
-        fetch(`http://localhost:5000/review/${review._id}`, {
+        fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/review/${review._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

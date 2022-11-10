@@ -18,7 +18,7 @@ const AddReview = () => {
 
     
     useEffect(() =>{
-        fetch(`http://localhost:5000/reviews?serviceId=${_id}`)
+        fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/reviews?serviceId=${_id}`)
         .then(res => res.json())
         .then((data) => {
             console.log(data);
@@ -45,7 +45,7 @@ const AddReview = () => {
             serviceTitle: title,
             serviceImg: image 
         };
-        fetch(`http://localhost:5000/review`, {
+        fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/review`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

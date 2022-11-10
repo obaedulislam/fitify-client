@@ -21,7 +21,7 @@ const MyReviews = () => {
 
     //User Email specific review
     useEffect(() =>{
-        fetch(`http://localhost:5000/myreview?email=${user?.email}`)
+        fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/myreview?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setUserReview(data);
@@ -42,7 +42,7 @@ const MyReviews = () => {
 
     //Delete Individual Review 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/myreview/${id}`, {
+        fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/myreview/${id}`, {
           method: "DELETE",
         })
         .then(res => res.json())

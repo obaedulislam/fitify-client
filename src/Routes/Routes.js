@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/service/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`),
+                loader: ({params}) => fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/service/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
             },
             {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
             {
                 path: '/myreviews/editreview/:id',
                 element: <PrivateRoute><EditReview></EditReview></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/review/${params.id}`)
+                loader: ({ params }) => fetch(`https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/review/${params.id}`)
             },
             {
                 path: '/add-service',

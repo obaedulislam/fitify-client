@@ -31,7 +31,7 @@ const AddService = () => {
         };
 
         // Post Service Data to Database
-        fetch('http://localhost:5000/add-service', {
+        fetch('https://b6a11-service-review-server-side-obaedulislam-obaedulislam.vercel.app/add-service', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
